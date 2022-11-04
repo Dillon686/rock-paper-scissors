@@ -1,3 +1,11 @@
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(function (button){
+  button.addEventListener('click', function (e) {
+    console.log(button.classList)
+  })
+});
+
 function getComputerChoice(){
     result = Math.ceil((Math.random() * 3))
     
@@ -34,7 +42,9 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
+
+
+/*function game(){
     let playerWins = 0;
     let computerWins = 0;
     let playerChoice = '';
@@ -61,6 +71,5 @@ function game(){
     }else if (computerWins > playerWins){
         alert(`The computer won the majority of matches. You lost ${playerWins} to ${computerWins}!`);
     }
-}
+}*/
 
-game();
