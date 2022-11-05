@@ -24,7 +24,7 @@ buttons.forEach(function (button){
     }*/
 
     winText.textContent = `WINS: ${playerWins}`;
-    lossText.textContent = `LOSSES ${playerLosses}`;
+    lossText.textContent = `LOSSES: ${playerLosses}`;
   })
 });
 
