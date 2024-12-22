@@ -38,33 +38,28 @@ function playRound(humanChoice, computerChoice){
   }
 }
 
-function playGame(){
-
-  playRound();
-
-  /*if (humanScore === computerScore){
-    console.log("After five rounds, it was a tie!");
-    console.log(`Human: ${humanScore}`);
-    console.log(`Computer: ${computerScore}`);
-  }else if (humanScore > computerScore){
-    console.log("After five rounds, the player won!");
-    console.log(`Human: ${humanScore}`);
-    console.log(`Computer: ${computerScore}`);
-  }else if (humanScore < computerScore){
-    console.log("After five rounds, the computer won!");
-    console.log(`Human: ${humanScore}`);
-    console.log(`Computer: ${computerScore}`);
-  }*/
-}
-
 let resultsDiv = document.querySelector("#results");
+let scoreDiv = document.querySelector("#score");
+let winnerDiv = document.querySelector("#winner");
 let humanScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => button.addEventListener("click", () => {
   resultsDiv.textContent = "";
+  winnerDiv.textContent = "";
   playRound(button.id, getComputerChoice())
-}));
 
-playRound();
+  scoreDiv.textContent = "";
+  scoreDiv.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+
+  if (humanScore === 5){
+    winnerDiv.textContent = "After reaching five points, the player won!";
+    humanScore = 0;
+    computerScore = 0;
+  }else if (computerScore === 5){
+    winnerDiv.textContent = "After reaching five points, the computer won!";
+    humanScore = 0;
+    computerScore = 0;
+  }
+}));
