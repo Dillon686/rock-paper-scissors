@@ -39,7 +39,8 @@ function playRound(humanChoice, computerChoice){
 }
 
 let resultsDiv = document.querySelector("#results");
-let scoreDiv = document.querySelector("#score");
+let humanSpan = document.querySelector("#player-score");
+let computerSpan = document.querySelector("#computer-score");
 let winnerDiv = document.querySelector("#winner");
 let humanScore = 0;
 let computerScore = 0;
@@ -50,15 +51,18 @@ buttons.forEach((button) => button.addEventListener("click", () => {
   winnerDiv.textContent = "";
   playRound(button.id, getComputerChoice())
 
-  scoreDiv.textContent = "";
-  scoreDiv.textContent = `Human: ${humanScore}, Computer: ${computerScore}`;
+  humanSpan.textContent = "";
+  humanSpan.textContent = `${humanScore}`;
+  computerSpan.textContent = "";
+  computerSpan.textContent = `${computerScore}`;
+
 
   if (humanScore === 5){
-    winnerDiv.textContent = "After reaching five points, the player won!";
+    winnerDiv.textContent = "The player won! Click to play again!";
     humanScore = 0;
     computerScore = 0;
   }else if (computerScore === 5){
-    winnerDiv.textContent = "After reaching five points, the computer won!";
+    winnerDiv.textContent = "The computer won! Click to play again!";
     humanScore = 0;
     computerScore = 0;
   }
